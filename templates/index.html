@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <h1>Resume Screening Tool</h1>
+            
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                        {% for category, message in messages %}
+                            <li class="alert">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %} <!-- This was the missing tag -->
+            
+            {% if 'user_id' in session %}
+                <h2>Welcome, {{ session['username'] }}!</h2>
+                <form action="/screen" method="post" enctype="multipart/form-data">
+                    <label for="job_description">Job Description:</label>
+                    <textarea name="job_description" rows="5" placeholder="Enter job description here..." required></textarea>
+
+                    <label for="resumes">Upload Resumes:</label>
+                    <input type="file" name="resumes" multiple accept=".txt,.docx,.pdf" required>
+                    
+                    <input type="submit" value="Screen Resumes">
+                </form>
+                <a href="/logout" class="btn-secondary">Logout</a>
+                <div class="results">
+                    <h3>Screening Results:</h3>
+                    <p>No results to display.</p> <!-- Placeholder for results -->
+                </div>
+            {% else %}
+                <p>Please <a href="/login">log in</a> or <a href="/register">register</a> to use the screening tool.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

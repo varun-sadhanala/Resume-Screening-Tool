@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Screening Results</h1>
+        
+        {% if results %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resume Name</th>
+                        <th>Similarity Score</th>
+                        <th>Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                        <tr>
+                            <td>{{ result.resume_name }}</td>
+                            <td>{{ result.similarity_score | round(2) }}</td>
+                            <td>{{ result.relevance_score | round(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No results to display.</p>
+        {% endif %}
+        
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>

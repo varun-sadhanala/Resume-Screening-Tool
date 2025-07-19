@@ -1,0 +1,174 @@
+/* index.css */
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Background */
+.background {
+    background-image: url('your-background-image-url.jpg'); /* Add your background image URL here */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem;
+    color: #007BFF;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 20px;
+    color: #007BFF;
+    text-align: left;
+}
+
+/* Form Elements */
+label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+    color: #555;
+}
+
+textarea, input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus, input[type="file"]:focus {
+    border-color: #007BFF;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Flash Messages */
+.flash-messages {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.flash-messages .alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Links */
+a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Results Section */
+.results {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    display: none; /* Initially hidden, can be shown with JavaScript */
+}
+
+.results p {
+    margin: 10px 0;
+}
+
+/* Additional Elements */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    input[type="submit"], .btn-secondary {
+        font-size: 0.9rem;
+    }
+}
